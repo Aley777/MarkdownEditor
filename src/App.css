@@ -105,6 +105,29 @@ textarea {
     min-height: 400px;
   }
 
+  .toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+  flex-wrap: wrap;
+}
+
+.toolbar button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toolbar button:hover {
+  background: #1d4ed8;
+}
+
   textarea,
   .preview {
     height: 360px;

@@ -31,6 +31,10 @@ console.log("Hello Markdown!");
     localStorage.setItem("markdown", markdown);
   }, [markdown]);
 
+  const addMarkdown = (syntax) => {
+    setMarkdown((prevMarkdown) => prevMarkdown + "\n" + syntax);
+  };
+
   return (
     <div className="app">
       <header className="header">
@@ -41,6 +45,15 @@ console.log("Hello Markdown!");
       <main className="editor-container">
         <section className="panel">
           <div className="panel-title">Editor</div>
+
+          <div className="toolbar">
+            <button onClick={() => addMarkdown("# Başlık")}>H1</button>
+            <button onClick={() => addMarkdown("**kalın yazı**")}>Bold</button>
+            <button onClick={() => addMarkdown("*italik yazı*")}>Italic</button>
+            <button onClick={() => addMarkdown("`kod`")}>Code</button>
+            <button onClick={() => addMarkdown("- liste elemanı")}>List</button>
+          </div>
+
           <textarea
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
