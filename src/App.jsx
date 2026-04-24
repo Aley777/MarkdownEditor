@@ -16,6 +16,8 @@ Merhaba 👋
 - React state kullanımı
 - Markdown desteği
 - LocalStorage desteği
+- Toolbar desteği
+- Dark/Light mode
 
 **Kalın yazı**
 *İtalik yazı*
@@ -27,19 +29,37 @@ console.log("Hello Markdown!");
     );
   });
 
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+
   useEffect(() => {
     localStorage.setItem("markdown", markdown);
   }, [markdown]);
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const addMarkdown = (syntax) => {
     setMarkdown((prevMarkdown) => prevMarkdown + "\n" + syntax);
   };
 
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
   return (
-    <div className="app">
+    <div className={`app ${theme}`}>
       <header className="header">
-        <h1>Markdown Editor</h1>
-        <p>Yazdıkça anında önizleme al.</p>
+        <div>
+          <h1>Markdown Editor</h1>
+          <p>Yazdıkça anında önizleme al.</p>
+        </div>
+
+        <button className="theme-button" onClick={toggleTheme}>
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
       </header>
 
       <main className="editor-container">
