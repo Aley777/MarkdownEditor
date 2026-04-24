@@ -53,6 +53,18 @@ console.log("Hello Markdown!");
   setMarkdown("");
 };
 
+  const downloadMarkdown = () => {
+    const blob = new Blob([markdown], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "document.md";
+    link.click();
+
+    URL.revokeObjectURL(url);
+  };
+
   const wordCount = markdown.trim()
     ? markdown.trim().split(/\s+/).length
     : 0;
@@ -86,9 +98,14 @@ console.log("Hello Markdown!");
             <div className="stats">
               <span>Words: {wordCount}</span>
               <span>Characters: {characterCount}</span>
+              
+              <button className="download-button" onClick={downloadMarkdown}>
+                Download .md
+              </button>
+              
               <button onClick={clearEditor}>Clear</button>
             </div>
-            
+
           <textarea
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
