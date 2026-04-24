@@ -8,7 +8,7 @@ function App() {
       localStorage.getItem("markdown") ||
       `# Markdown Editor
 
-Merhaba 👋
+Merhaba
 
 ## Özellikler
 
@@ -98,7 +98,7 @@ console.log("Hello Markdown!");
             <div className="stats">
               <span>Words: {wordCount}</span>
               <span>Characters: {characterCount}</span>
-              
+
               <button className="download-button" onClick={downloadMarkdown}>
                 Download .md
               </button>

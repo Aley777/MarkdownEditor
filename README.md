@@ -34,7 +34,7 @@ npm install
 npm run dev
 ```
 
-## 🧠 What I Learned
+## What I Learned
 
 - Managing state with React Hooks (`useState`, `useEffect`)
 - Building controlled components (textarea)
@@ -45,7 +45,7 @@ npm run dev
 - Handling file downloads in browser
 - Responsive layout with CSS Grid
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -54,7 +54,7 @@ src/
  └── main.jsx
 ```
 
-## ⭐ Why This Project?
+## Why This Project?
 
 This project demonstrates core frontend skills:
 
@@ -64,6 +64,6 @@ This project demonstrates core frontend skills:
 - User experience improvements
 - Practical feature implementation
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
