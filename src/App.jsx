@@ -49,6 +49,16 @@ console.log("Hello Markdown!");
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
+  const clearEditor = () => {
+  setMarkdown("");
+};
+
+  const wordCount = markdown.trim()
+    ? markdown.trim().split(/\s+/).length
+    : 0;
+
+  const characterCount = markdown.length;
+
   return (
     <div className={`app ${theme}`}>
       <header className="header">
@@ -73,7 +83,12 @@ console.log("Hello Markdown!");
             <button onClick={() => addMarkdown("`kod`")}>Code</button>
             <button onClick={() => addMarkdown("- liste elemanı")}>List</button>
           </div>
-
+            <div className="stats">
+              <span>Words: {wordCount}</span>
+              <span>Characters: {characterCount}</span>
+              <button onClick={clearEditor}>Clear</button>
+            </div>
+            
           <textarea
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
